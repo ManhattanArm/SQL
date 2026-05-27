@@ -18,14 +18,9 @@ public class BankLoginTest {
         cleanDataBase();
     }
 
-//    @AfterEach
-//    void tearDown() {
-//        cleanAuthCodes();
-//    }
-
     @BeforeEach
     void setUp() {
-       loginPage = open("http://localhost:9999", LoginPage.class);
+        loginPage = open("http://localhost:9999", LoginPage.class);
     }
 
     @Test
@@ -46,6 +41,7 @@ public class BankLoginTest {
 
     @Test
     void shouldGetErrorNotificationIfLoginWithExistUserAndRandomVerificationCode() {
+        authInfo = DataHelper.getAuthInfoWithTestData();
         var verificationPage = loginPage.validLogin(authInfo);
         var verificationCode = DataHelper.generateRandomVerificationCode();
         verificationPage.verificationPageVisibility();

@@ -34,12 +34,6 @@ public class DataHelper {
         String code;
     }
 
-//    @Value
-//    public static class CardInfo {
-//        String cardNumber;
-//        String testId;
-//    }
-
     @Value
     public static class AuthInfo {
         String login;
