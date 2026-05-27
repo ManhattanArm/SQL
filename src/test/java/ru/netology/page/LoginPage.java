@@ -3,6 +3,7 @@ package ru.netology.page;
 import com.codeborne.selenide.SelenideElement;
 import ru.netology.data.DataHelper;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -13,7 +14,7 @@ public class LoginPage {
     private final SelenideElement errorNotification = $("[data-test-id='error-notification']");
 
     public void verifyErrorNotificationVisibility() {
-        errorNotification.shouldBe(visible);
+        errorNotification.shouldBe(text("Ошибка! \nНеверно указан логин или пароль")).shouldBe(visible);
     }
 
     public VerificationPage validLogin(DataHelper.AuthInfo info) {

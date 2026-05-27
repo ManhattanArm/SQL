@@ -2,6 +2,7 @@ package ru.netology.page;
 
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -15,7 +16,7 @@ public class VerificationPage {
     }
 
     public void verifyErrorNotificationVisibility() {
-        errorNotification.shouldBe(visible);
+        errorNotification.shouldBe(text("Ошибка! \nНеверно указан код! Попробуйте ещё раз.")).shouldBe(visible);
     }
 
     public DashboardPage validVerify(String verificationCode) {
